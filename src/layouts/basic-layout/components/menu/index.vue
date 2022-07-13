@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch, onMounted } from 'vue';
+import { reactive, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { routes } from '@router';
 import { useMenu } from '@/hooks';

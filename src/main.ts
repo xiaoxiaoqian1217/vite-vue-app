@@ -7,7 +7,7 @@ import { installPlugin } from './plugins';
 
 const app = createApp(App);
 
-installPlugin(app).catch(() => {});
+installPlugin(app).catch();
 
 app.use(Antd);
 app.mount('#app');
