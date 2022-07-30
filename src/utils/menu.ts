@@ -1,12 +1,7 @@
 import { RouteRecordRaw } from 'vue-router';
-export const generateMenu = async (menus: RouteRecordRaw[]) => {
-  return menus.map((menuItem) => {
-    const curMenu: any = {
-      key: menuItem.name,
-      name: menuItem.name,
-      title: menuItem?.meta?.title,
-    };
-    if (menuItem.children) curMenu.children = generateMenu(menuItem.children);
-    return curMenu;
-  });
-};
+import { findPath } from './treeHelper';
+
+export function getAllParentPathName(treeData: T[], name: string) {
+  const menuList = findPath(treeData, (n) => n.name === name) as Menu[];
+  return (menuList || []).map((item) => item.name);
+}

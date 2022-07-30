@@ -6,6 +6,7 @@ export const useMenu = (modules: any) => {
         key: menuItem.name,
         name: menuItem.name,
         title: menuItem?.meta?.title,
+        meta: menuItem?.meta,
       };
       if (menuItem.children) curMenu.children = generateMenu(menuItem.children);
       return curMenu;
