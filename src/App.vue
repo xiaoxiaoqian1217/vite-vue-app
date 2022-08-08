@@ -6,4 +6,4 @@
   </router-view>
 </template>
 
-<style></style>
+<style lang="less"></style>

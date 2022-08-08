@@ -12,7 +12,7 @@ yarn add eslint
 npx eslint --init
 ```
 
-在 package.json 文件中增加一个 lint 命令
+在 depackage.json 文件中增加一个 lint 命令
 
 ```
 {
