@@ -5,7 +5,7 @@
       <Menu></Menu>
     </a-layout-sider>
     <a-layout class="content">
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header class="layout-header flex items-center">
         <menu-unfold-outlined
           v-if="collapsed"
           class="trigger"
@@ -16,12 +16,9 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
+        <BreadCrumb></BreadCrumb>
       </a-layout-header>
-      <a-layout-content style="margin: 0 16px">
-        <a-breadcrumb style="margin: 16px 0">
-          <a-breadcrumb-item>User</a-breadcrumb-item>
-          <a-breadcrumb-item>Bill</a-breadcrumb-item>
-        </a-breadcrumb>
+      <a-layout-content style="margin: 16px 16px">
         <div
           :style="{ padding: '24px', background: '#fff', minHeight: '360px' }"
         >
@@ -41,23 +38,27 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
 
 import { ref } from 'vue';
 import Menu from './components/menu/index.vue';
+import BreadCrumb from './components/bread-crumb/index.vue';
 
 const collapsed = ref(false);
 </script>
-<style>
+<style lang="less">
 .content {
   min-height: calc(100vh);
 }
-#components-layout-demo-custom-trigger .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
-}
+.layout-header {
+  background: #fff;
 
-#components-layout-demo-custom-trigger .trigger:hover {
-  color: #1890ff;
+  .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+    .trigger:hover {
+      color: #1890ff;
+    }
+  }
 }
 
 .logo {
