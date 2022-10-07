@@ -11,7 +11,7 @@ export const useMenu = () => {
   };
   const modules = asyncGetMenu();
   const generateMenu = (menus: any[]) => {
-    return menus.map((menuItem) => {
+    return menus?.map((menuItem) => {
       const curMenu: any = {
         path: menuItem.path,
         key: menuItem.name,

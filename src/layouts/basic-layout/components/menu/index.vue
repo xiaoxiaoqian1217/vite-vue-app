@@ -23,55 +23,50 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch, unref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useMenu } from '@hooks';
-import { getAllParentPathName } from '@utils';
+  import { reactive, watch, unref } from 'vue';
+  import { useRouter } from 'vue-router';
+  import { useMenu } from '@hooks';
+  import { getAllParentPathName } from '@utils';
 
-const state = reactive({
-  collapsed: false,
-  selectedKeys: [],
-  openKeys: [],
-  preOpenKeys: [],
-});
-const router = useRouter();
-const { currentRoute } = router;
-
-// 过滤根路由
-
-const [menus] = useMenu();
-
-// 监听当前路由，设置选中的keys
-watch(
-  () => currentRoute,
-  (val, oldVal) => {
-    const unRefCurrentRoute = unref(val);
-    const selectedKeys =
-      unRefCurrentRoute?.meta?.currentActiveMenu || unRefCurrentRoute?.name;
-    state.selectedKeys = [selectedKeys];
-    // 找到所有的父级菜单
-    state.openKeys = getAllParentPathName(menus, selectedKeys);
-    console.log(
-      '%c [ state.openKeys ]-52',
-      'font-size:13px; background:pink; color:#bf2c9f;',
-      state.openKeys
-    );
-  },
-  { deep: true, immediate: true }
-);
-
-watch(
-  () => state.openKeys,
-  (val, oldVal) => {
-    state.preOpenKeys = oldVal;
-  }
-);
-
-const handleSelect = (e) => {
-  router.push({
-    name: e.key,
+  const state = reactive({
+    collapsed: false,
+    selectedKeys: [],
+    openKeys: [],
+    preOpenKeys: [],
   });
-};
+  const router = useRouter();
+  const { currentRoute } = router;
+
+  // 过滤根路由
+
+  const [menus] = useMenu();
+
+  // 监听当前路由，设置选中的keys
+  watch(
+    () => currentRoute,
+    (val, oldVal) => {
+      const unRefCurrentRoute = unref(val);
+      const selectedKeys = unRefCurrentRoute?.meta?.currentActiveMenu || unRefCurrentRoute?.name;
+      state.selectedKeys = [selectedKeys];
+      // 找到所有的父级菜单
+      state.openKeys = getAllParentPathName(menus, selectedKeys);
+      console.log('%c [ state.openKeys ]-52', 'font-size:13px; background:pink; color:#bf2c9f;', state.openKeys);
+    },
+    { deep: true, immediate: true }
+  );
+
+  watch(
+    () => state.openKeys,
+    (val, oldVal) => {
+      state.preOpenKeys = oldVal;
+    }
+  );
+
+  const handleSelect = (e) => {
+    router.push({
+      name: e.key,
+    });
+  };
 </script>
 
 <style scoped></style>

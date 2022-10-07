@@ -6,9 +6,7 @@ import { unref } from 'vue';
 import { useRouter } from 'vue-router';
 import { REDIRECT_NAME } from '@router/constant';
 
-export type PathAsPageEnum<T> = T extends { path: string }
-  ? T & { path: PageEnum }
-  : T;
+export type PathAsPageEnum<T> = T extends { path: string } ? T & { path: PageEnum } : T;
 export type RouteLocationRawEx = PathAsPageEnum<RouteLocationRaw>;
 
 function handleError(e: Error) {

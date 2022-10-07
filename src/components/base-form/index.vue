@@ -9,40 +9,36 @@
 </template>
 
 <script setup lang="ts">
-import { toRaw, toRefs } from 'vue';
-import { Form } from 'ant-design-vue';
-const props = defineProps<{
-  formModel: Record<string, any>;
-  rules: Record<string, any>; // TODO 这个可以详细一点
-}>();
+  import { toRaw, toRefs } from 'vue';
+  import { Form } from 'ant-design-vue';
+  const props = defineProps<{
+    formModel: Record<string, any>;
+    rules: Record<string, any>; // TODO 这个可以详细一点
+  }>();
 
-const emit = defineEmits<{
-  (e: 'submit', params: any): void;
-}>();
+  const emit = defineEmits<{
+    (e: 'submit', params: any): void;
+  }>();
 
-const { formModel, rules } = toRefs(props);
+  const { formModel, rules } = toRefs(props);
 
-const useForm = Form.useForm;
+  const useForm = Form.useForm;
 
-const { resetFields, validate, validateInfos, initialModel } = useForm(
-  formModel,
-  rules,
-  {
+  const { resetFields, validate, validateInfos, initialModel } = useForm(formModel, rules, {
     onValidate: (...args) => console.log(...args),
     validateField: (...args) => {
       console.log(...args);
     },
-  }
-);
-const onSubmit = () => {
-  validate()
-    .then((values) => {
-      emit('submit', toRaw(formModel.value));
-    })
-    .catch((err) => {
-      console.log('error', err);
-    });
-};
+  });
+  const onSubmit = () => {
+    validate()
+      .then((values) => {
+        emit('submit', toRaw(formModel.value));
+      })
+      .catch((err) => {
+        console.log('error', err);
+      });
+  };
 </script>
 
 <style scoped></style>
