@@ -1,7 +1,4 @@
-<script setup>
-  console.log(a);
-  const a = 0;
-</script>
+<script setup></script>
 
 <template>
   <Foo :count="count" @click="inc" />
