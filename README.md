@@ -21,4 +21,5 @@ npx eslint --init
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix"
   }
 }
+
 ```
