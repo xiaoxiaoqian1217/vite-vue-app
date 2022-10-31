@@ -6,7 +6,7 @@ export const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'root',
     meta: { title: '管理后台' },
-    component: () => import('@layouts/basic-layout/index.vue'),
+    component: () => import('@/layouts/basic-layout/index.vue'),
     children: [...basicRoutes],
   },
   // 业务路由

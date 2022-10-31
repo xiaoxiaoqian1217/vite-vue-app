@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
-import { routes } from '@router';
+import { routes } from '@/router';
 
 export const useMenu = () => {
   // 模拟菜单生成，实际会根据后端接口生成菜单，自己可以根据需要看下是否根据后端接口过滤前端自己配置的卢有
@@ -25,5 +25,5 @@ export const useMenu = () => {
       return curMenu;
     });
   };
-  return [generateMenu(modules)];
+  return [generateMenu(modules || [])];
 };

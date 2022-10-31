@@ -83,10 +83,10 @@
   const useForm = Form.useForm;
 
   const { resetFields, validate, validateInfos, initialModel } = useForm(formModel, rules, {
-    onValidate: (...args) => console.log(...args),
-    validateField: (...args) => {
-      console.log(111, ...args);
-    },
+    // onValidate: (...args) => console.log(...args),
+    // validateField: (...args) => {
+    //   console.log(111, ...args);
+    // },
   });
   const onSubmit = () => {
     validate()

@@ -4,7 +4,7 @@
       <template v-for="route in routes" :key="route.meta?.name">
         <a-breadcrumb-item>
           <span v-if="!hasRedirectPath(routes, route)">
-            {{ route.meta.title }}
+            {{ route.meta?.title }}
           </span>
           <router-link
             v-else
@@ -24,7 +24,7 @@
               <template v-for="item in route.children" :key="item.meta?.name">
                 <a-menu-item>
                   <router-link to="" @click="handleMenuItem(item.path, route.path)">
-                    {{ item.meta.title }}
+                    {{ item?.meta?.title }}
                   </router-link>
                 </a-menu-item>
               </template>
@@ -40,9 +40,9 @@
   import { ref, watchEffect, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
   import type { RouteLocationMatched } from 'vue-router';
-  import { useGoPath, useMenu } from '@hooks';
-  import { isString, filter as treeFilter, getAllParentPathName } from '@utils';
-  import { REDIRECT_NAME } from '@router/constant';
+  import { useGoPath, useMenu } from '@/hooks';
+  import { isString, filter as treeFilter, getAllParentPathName } from '@/utils';
+  import { REDIRECT_NAME } from '@/router/constant';
 
   const routes = ref<RouteLocationMatched[]>([]);
   const { currentRoute } = useRouter();
@@ -77,8 +77,8 @@
     routes.value = breadcrumbList;
   });
 
-  function getMatched(menus: Menu[], parent: string[]) {
-    const metched: Menu[] = [];
+  function getMatched(menus: any[], parent: string[]) {
+    const metched: any[] = [];
     menus.forEach((item) => {
       if (parent.includes(item.name)) {
         metched.push({
@@ -143,7 +143,7 @@
     }
   }
 
-  const handleMenuItem = (childPath, parentPath) => {
+  const handleMenuItem = (childPath: string, parentPath: string) => {
     const goPath = /^\//.test(childPath) ? childPath : `/${childPath}`;
     if (goPath) go('/' + parentPath + goPath);
   };

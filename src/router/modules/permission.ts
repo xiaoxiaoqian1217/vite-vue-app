@@ -10,7 +10,7 @@ export default [
         path: 'page',
         name: 'permission-page',
         meta: { title: '页面权限' },
-        component: () => import('@views/permission-page/index.vue'),
+        component: () => import('@/views/permission-page/index.vue'),
       },
       {
         path: 'btn',
@@ -18,7 +18,7 @@ export default [
         meta: {
           title: '按钮权限',
         },
-        component: () => import('@views/permission-btn/index.vue'),
+        component: () => import('@/views/permission-btn/index.vue'),
       },
     ],
   },

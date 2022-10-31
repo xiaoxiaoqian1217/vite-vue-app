@@ -10,7 +10,7 @@ export default [
         path: 'baseFrom',
         name: 'base-form',
         meta: { title: '表单页' },
-        component: () => import('@views/base-form/index.vue'),
+        component: () => import('@/views/base-form/index.vue'),
       },
       {
         path: 'baseFromDetail',
@@ -20,7 +20,7 @@ export default [
           currentActiveMenu: 'base-form', // 设置当前的高亮的菜单项
           hideMenu: true, // 配置此项是否需要在菜单中展
         },
-        component: () => import('@views/base-form-detail/index.vue'),
+        component: () => import('@/views/base-form-detail/index.vue'),
       },
     ],
   },
