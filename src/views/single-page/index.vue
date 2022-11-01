@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>单页面</div>
 </template>
 
 <script setup lang="ts"></script>

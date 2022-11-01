@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-
-npx --no-install lint-staged
+# 安装并运行lint-stage 命令 npm install + npm run
+npx --no-install lint-staged  

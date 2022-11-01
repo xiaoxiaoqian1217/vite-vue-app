@@ -2,7 +2,7 @@
 
 <template>
   <router-view v-slot="{ Component }">
-    <component :is="Component"></component>
+    <component :is="Component" />
   </router-view>
 </template>
 

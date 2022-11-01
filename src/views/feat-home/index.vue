@@ -1,5 +1,5 @@
 <template>
-  <div>111</div>
+  <div>功能</div>
 </template>
 
 <script setup lang="ts"></script>
