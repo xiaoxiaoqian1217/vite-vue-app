@@ -20,6 +20,7 @@
       <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
     </a-layout>
   </a-layout>
+  <div>这里是layout</div>
 </template>
 <script lang="ts" setup>
   import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
