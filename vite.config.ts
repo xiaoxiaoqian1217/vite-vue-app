@@ -12,6 +12,6 @@ export default defineConfig({
       '@/': `${resolve(__dirname, 'src')}/`,
     },
   },
-  base: '/vite-vue-app/',
+  base: '/',
   plugins: [vue(), WindiCSS()],
 });
