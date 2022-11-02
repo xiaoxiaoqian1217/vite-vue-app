@@ -3,7 +3,7 @@ import type { App } from 'vue';
 import { routes } from '../router';
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/vite-vue-app'),
   routes: routes,
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 }),
