@@ -5,28 +5,27 @@
       <Menu />
     </a-layout-sider>
     <a-layout class="content">
-      <a-layout-header class="layout-header flex items-center">
+      <!-- <a-layout-header class="layout-header flex items-center">
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
         <BreadCrumb />
-      </a-layout-header>
-      <a-layout-content style="margin: 16px 16px">
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }">
-          <router-view v-slot="{ Component }">
-            <component :is="Component" />
-          </router-view>
-        </div>
-      </a-layout-content>
-      <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer>
+      </a-layout-header> -->
+      <!-- <a-layout-content style="margin: 16px 16px">
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '360px' }"> -->
+      <router-view v-slot="{ Component }">
+        <component :is="Component" />
+      </router-view>
+      <!-- </div>
+      </a-layout-content> -->
+      <!-- <a-layout-footer style="text-align: center"> Ant Design ©2018 Created by Ant UED </a-layout-footer> -->
     </a-layout>
   </a-layout>
-  <div>这里是layout</div>
 </template>
 <script lang="ts" setup>
   import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons-vue';
   import { ref } from 'vue';
   import Menu from './components/menu/index.vue';
-  import BreadCrumb from './components/bread-crumb/index.vue';
+  // import BreadCrumb from './components/bread-crumb/index.vue';
 
   const collapsed = ref(false);
 </script>
