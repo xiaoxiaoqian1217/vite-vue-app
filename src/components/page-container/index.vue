@@ -42,7 +42,6 @@
   import { Tabs, TabPane, Tooltip } from 'ant-design-vue';
   import { InfoCircleOutlined } from '@ant-design/icons-vue';
   import PageHeader from '../page-header/index.vue';
-
   interface PropsType {
     title?: string; // 页面标题
     desc?: string; // 页面描述
@@ -63,7 +62,7 @@
     desc: '',
     showBack: false,
     backFn: null,
-    tabs: [],
+    tabs: () => [],
     activeKey: '0',
     destroyInactiveTabPane: false,
   });

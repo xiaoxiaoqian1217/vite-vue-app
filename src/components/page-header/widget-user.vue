@@ -16,13 +16,22 @@
   import { useRouter } from 'vue-router';
   import { Avatar, Popover } from 'ant-design-vue';
   import { CaretDownOutlined } from '@ant-design/icons-vue';
-  import { useUserInfoStore } from '@shared/store';
-  import { useLogout } from '@shared/hooks';
+  // import { useUserInfoStore } from '@shared/store';
+  // import { useLogout } from '@shared/hooks';
 
   const router = useRouter();
 
   // 用户信息
-  const userInfoStore = useUserInfoStore();
+  // const userInfoStore = useUserInfoStore();
+  const userInfoStore = {
+    userInfo: {
+      avatarUrl: '',
+      userName: 'xxq',
+      roleName: 'roleName',
+    },
+    userRoleList: [],
+  };
+
   const privilegeUserInfo = userInfoStore.userInfo;
   const roleList = userInfoStore.userRoleList;
 
@@ -32,7 +41,10 @@
   }
 
   // 退出
-  const { handleLogout } = useLogout();
+  // const { handleLogout } = useLogout();
+  const handleLogout = () => {
+    console.log('%c [ logout ]: ', 'color: #bf2c9f; background: pink; font-size: 13px;', 'logout');
+  };
 </script>
 <style lang="less" scoped>
   .user-info {
