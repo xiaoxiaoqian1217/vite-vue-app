@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@types/node": "^18.0.3",
+    "@vueuse/core": "^9.6.0",
     "ant-design-vue": "^3.2.10",
     "gh-pages": "^4.0.0",
     "less": "^4.1.3",
