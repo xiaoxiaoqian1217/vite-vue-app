@@ -75,7 +75,7 @@
   const currentActiveKey = ref(props.activeKey);
 
   // 切换 tab
-  const handleChangeTab = (activeKey: string) => {
+  const handleChangeTab = (activeKey: any) => {
     emit('change', activeKey);
   };
 </script>
